@@ -1,9 +1,9 @@
 language: android
 android:
   components:
-    - build-tools-28.0.3
-    - android-28
-    - android-19
+    - build-tools-30.0.3
+    - android-30
+    - android-21
     - add-on
     - extra
     - platform-tools
@@ -22,14 +22,13 @@ env:
 sudo: required
 
 before_install:
-  - yes | sdkmanager "platforms;android-28"
-  - yes | sdkmanager "build-tools;28.0.3"
+  - yes | sdkmanager "platforms;android-30"
   - chmod +x gradlew
 
 before_script:
   # Create and start emulator
-  - echo no | android create avd --force -n test -t android-19 --abi armeabi-v7a -s "768x1280"
-  - emulator -avd test -no-audio -no-window &
+  - echo no | android create avd --force -n test -t android-21 --abi armeabi-v7a -s "768x1280"
+  - emulator -avd test -no-skin -no-audio -no-window -gpu off &
   - adb wait-for-device
   - adb shell input keyevent 82 &
 
@@ -46,5 +45,5 @@ deploy:
 notifications:
   email:
     recipients:
-    - szalkaititi@gmail.com
+      - szalkaititi@gmail.com
     on_failure: always
