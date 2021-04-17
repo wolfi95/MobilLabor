@@ -2,6 +2,7 @@ package com.yn6akk.mobillabor.ui
 
 import android.content.Context
 import com.yn6akk.mobillabor.interactor.shows.ShowsInteractor
+import com.yn6akk.mobillabor.ui.details.DetailsPresenter
 import com.yn6akk.mobillabor.ui.main.MainPresenter
 import dagger.Module
 import dagger.Provides
@@ -17,6 +18,10 @@ class UIModule(private val context: Context) {
     @Provides
     @Singleton
     fun mainPresenter(executor: Executor, showsInteractor: ShowsInteractor) = MainPresenter(executor, showsInteractor)
+
+    @Provides
+    @Singleton
+    fun detailsPresenter(executor: Executor, showsInteractor: ShowsInteractor) = DetailsPresenter(executor, showsInteractor)
 
     @Provides
     @Singleton

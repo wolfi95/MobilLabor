@@ -1,18 +1,21 @@
-package com.yn6akk.mobillabor.ui.main
+package com.yn6akk.mobillabor.ui.details
 
 import com.yn6akk.mobillabor.interactor.shows.ShowsInteractor
+import com.yn6akk.mobillabor.interactor.shows.events.GetShowDetailsEvent
 import com.yn6akk.mobillabor.interactor.shows.events.GetShowsEvent
 import com.yn6akk.mobillabor.model.Show
+import com.yn6akk.mobillabor.model.ShowDetail
 import com.yn6akk.mobillabor.ui.Presenter
+import com.yn6akk.mobillabor.ui.main.MainScreen
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import java.util.concurrent.Executor
 import javax.inject.Inject
 
-class MainPresenter @Inject constructor(private val executor: Executor, private val showsInteractor: ShowsInteractor) : Presenter<MainScreen>() {
+class DetailsPresenter @Inject constructor(private val executor: Executor, private val showsInteractor: ShowsInteractor) : Presenter<DetailsScreen>() {
 
-    override fun attachScreen(screen: MainScreen) {
+    override fun attachScreen(screen: DetailsScreen) {
         super.attachScreen(screen)
         if (!EventBus.getDefault().isRegistered(this)) {
             EventBus.getDefault().register(this)
@@ -24,14 +27,14 @@ class MainPresenter @Inject constructor(private val executor: Executor, private 
         super.detachScreen()
     }
 
-    fun refreshShows() {
+    fun getShowDetails(showId: String) {
         executor.execute {
-            showsInteractor.getShows()
+            showsInteractor.getShowDetails(showId);
         }
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onEventMainThread(event: GetShowsEvent) {
+    fun onEventMainThread(event: GetShowDetailsEvent) {
         if (event.throwable != null) {
             event.throwable?.printStackTrace()
             if (screen != null) {
@@ -39,8 +42,8 @@ class MainPresenter @Inject constructor(private val executor: Executor, private 
             }
         } else {
             if (screen != null) {
-                if (event.shows != null) {
-                    screen?.showShows(event.shows as MutableList<Show>)
+                if (event.showDetails != null) {
+                    screen?.showDetails(event.showDetails as ShowDetail)
                 }
 
             }
