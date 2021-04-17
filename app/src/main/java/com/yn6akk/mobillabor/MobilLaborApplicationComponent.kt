@@ -11,5 +11,4 @@ import dagger.Component
 @Component(modules = [UIModule::class, NetworkModule::class, InteractorModule::class])
 interface MobilLaborApplicationComponent {
     fun inject(mainActivity: MainActivity)
-    //fun inject(artistsFragment: ArtistsFragment)
 }

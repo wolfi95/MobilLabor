@@ -15,13 +15,21 @@ ext {
     dagger_version = '2.33'
     support_version = '30.0.0'
     eventbus_version = '3.2.0'
+    okhttp_version = '3.12.1'
+    retrofit_version = '2.5.0'
+    gson_version = "2.8.5"
 
     kotlinDependencies = [
             stdlib: "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     ]
 
     toolkitDependencies = [
-            eventbus: "org.greenrobot:eventbus:$eventbus_version"
+            eventbus: "org.greenrobot:eventbus:$eventbus_version",
+            okhttp               : "com.squareup.okhttp3:okhttp:$okhttp_version",
+            logging              : "com.squareup.okhttp3:logging-interceptor:$okhttp_version",
+            retrofit             : "com.squareup.retrofit2:retrofit:$retrofit_version",
+            retrofitGsonConverter: "com.squareup.retrofit2:converter-gson:$retrofit_version",
+            gson                 : "com.google.code.gson:gson:$gson_version",
     ]
 
     supportDependencies = [
