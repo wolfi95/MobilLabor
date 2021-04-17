@@ -2,6 +2,7 @@ package com.yn6akk.mobillabor.ui.main
 
 import com.yn6akk.mobillabor.interactor.shows.ShowsInteractor
 import com.yn6akk.mobillabor.interactor.shows.events.GetShowsEvent
+import com.yn6akk.mobillabor.model.DaySchedule
 import com.yn6akk.mobillabor.model.Show
 import com.yn6akk.mobillabor.ui.Presenter
 import org.greenrobot.eventbus.EventBus
@@ -39,8 +40,8 @@ class MainPresenter @Inject constructor(private val executor: Executor, private 
             }
         } else {
             if (screen != null) {
-                if (event.shows != null) {
-                    screen?.showShows(event.shows as MutableList<Show>)
+                if (event.days != null) {
+                    screen?.showShows(event.days as MutableList<DaySchedule>)
                 }
 
             }

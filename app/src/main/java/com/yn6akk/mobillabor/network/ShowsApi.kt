@@ -7,7 +7,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface ShowsApi {
-    @GET("search")
+    @GET("schedule")
     fun getShows(): Call<ShowsResult>;
     @GET("details")
     fun getShowDetails(

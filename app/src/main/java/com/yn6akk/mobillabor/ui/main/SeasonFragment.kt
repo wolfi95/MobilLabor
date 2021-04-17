@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.yn6akk.mobillabor.R
+import com.yn6akk.mobillabor.model.DaySchedule
 import com.yn6akk.mobillabor.model.Show
 import com.yn6akk.mobillabor.ui.details.DetailsActivity
 import com.yn6akk.mobillabor.ui.injector
@@ -50,7 +51,7 @@ class SeasonFragment : Fragment(), MainScreen {
         mainPresenter.refreshShows()
     }
 
-    override fun showShows(shows: List<Show>?) {
+    override fun showShows(shows: List<DaySchedule>?) {
         TODO("Not yet implemented")
     }
 
