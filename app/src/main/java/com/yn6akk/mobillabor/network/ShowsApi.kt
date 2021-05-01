@@ -1,15 +1,15 @@
 package com.yn6akk.mobillabor.network
 
-import com.yn6akk.mobillabor.model.ShowDetailsResult
-import com.yn6akk.mobillabor.model.ShowsResult
+import io.swagger.client.models.AnimeDetails
+import io.swagger.client.models.AnimeList
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface ShowsApi {
     @GET("schedule")
-    fun getShows(): Call<ShowsResult>;
+    fun getShows(): Call<AnimeList>;
     @GET("details")
     fun getShowDetails(
-        @Query("id") showId: String): Call<ShowDetailsResult>
+        @Query("id") showId: String): Call<AnimeDetails>
 }

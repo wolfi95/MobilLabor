@@ -7,9 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.yn6akk.mobillabor.R
-import com.yn6akk.mobillabor.model.DaySchedule
-import com.yn6akk.mobillabor.model.Show
 import com.yn6akk.mobillabor.ui.injector
+import io.swagger.client.models.AnimeList
 import javax.inject.Inject
 
 class FavouritesFragment : Fragment(), MainScreen {
@@ -32,7 +31,7 @@ class FavouritesFragment : Fragment(), MainScreen {
         super.onDetach()
     }
 
-    override fun showShows(shows: List<DaySchedule>?) {
+    override fun showShows(shows: AnimeList?) {
         TODO("Not yet implemented")
     }
 

@@ -9,10 +9,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.yn6akk.mobillabor.R
-import com.yn6akk.mobillabor.model.DaySchedule
-import com.yn6akk.mobillabor.model.Show
 import com.yn6akk.mobillabor.ui.details.DetailsActivity
 import com.yn6akk.mobillabor.ui.injector
+import io.swagger.client.models.AnimeList
 import kotlinx.android.synthetic.main.fragment_season.view.*
 import javax.inject.Inject
 
@@ -51,7 +50,7 @@ class SeasonFragment : Fragment(), MainScreen {
         mainPresenter.refreshShows()
     }
 
-    override fun showShows(shows: List<DaySchedule>?) {
+    override fun showShows(shows: AnimeList?) {
         TODO("Not yet implemented")
     }
 

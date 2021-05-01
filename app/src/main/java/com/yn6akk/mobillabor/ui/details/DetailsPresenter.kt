@@ -2,11 +2,9 @@ package com.yn6akk.mobillabor.ui.details
 
 import com.yn6akk.mobillabor.interactor.shows.ShowsInteractor
 import com.yn6akk.mobillabor.interactor.shows.events.GetShowDetailsEvent
-import com.yn6akk.mobillabor.interactor.shows.events.GetShowsEvent
-import com.yn6akk.mobillabor.model.Show
 import com.yn6akk.mobillabor.model.ShowDetail
 import com.yn6akk.mobillabor.ui.Presenter
-import com.yn6akk.mobillabor.ui.main.MainScreen
+import io.swagger.client.models.AnimeDetails
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
@@ -43,7 +41,7 @@ class DetailsPresenter @Inject constructor(private val executor: Executor, priva
         } else {
             if (screen != null) {
                 if (event.showDetails != null) {
-                    screen?.showDetails(event.showDetails as ShowDetail)
+                    screen?.showDetails(event.showDetails as AnimeDetails)
                 }
 
             }

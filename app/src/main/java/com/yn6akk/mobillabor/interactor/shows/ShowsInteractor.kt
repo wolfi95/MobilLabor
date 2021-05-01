@@ -22,7 +22,7 @@ class ShowsInteractor @Inject constructor(private var showsApi: ShowsApi) {
                 throw Exception("Couldnt get shows.")
             }
             event.code = response.code()
-            event.days = response.body()?.days
+            event.data = response.body()
             EventBus.getDefault().post(event)
         } catch (e: Exception) {
             event.throwable = e;
@@ -42,7 +42,7 @@ class ShowsInteractor @Inject constructor(private var showsApi: ShowsApi) {
                 throw Exception("Couldnt get show details.")
             }
             event.code = response.code()
-            event.showDetails = response.body()?.showDetails
+            event.showDetails = response.body()
             EventBus.getDefault().post(event)
         } catch (e: Exception) {
             event.throwable = e;

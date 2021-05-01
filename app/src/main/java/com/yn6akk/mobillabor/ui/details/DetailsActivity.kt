@@ -7,6 +7,7 @@ import com.yn6akk.mobillabor.R
 import com.yn6akk.mobillabor.model.ShowDetail
 import com.yn6akk.mobillabor.ui.injector
 import com.yn6akk.mobillabor.ui.main.SeasonFragment
+import io.swagger.client.models.AnimeDetails
 import javax.inject.Inject
 
 class DetailsActivity : AppCompatActivity(), DetailsScreen {
@@ -35,7 +36,7 @@ class DetailsActivity : AppCompatActivity(), DetailsScreen {
         detailPresenter.getShowDetails("selectedArtist")
     }
 
-    override fun showDetails(shows: ShowDetail) {
+    override fun showDetails(shows: AnimeDetails) {
         TODO("Not yet implemented")
     }
 
