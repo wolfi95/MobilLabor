@@ -1,7 +1,10 @@
 package com.yn6akk.mobillabor.ui.main
 
+import android.content.Context
 import com.yn6akk.mobillabor.interactor.shows.ShowsInteractor
 import com.yn6akk.mobillabor.interactor.shows.events.GetShowsEvent
+import com.yn6akk.mobillabor.persistence.Database
+import com.yn6akk.mobillabor.persistence.models.PersistedShow
 import com.yn6akk.mobillabor.ui.Presenter
 import io.swagger.client.models.AnimeList
 import org.greenrobot.eventbus.EventBus
@@ -28,6 +31,10 @@ class MainPresenter @Inject constructor(private val executor: Executor, private 
         executor.execute {
             showsInteractor.getShows()
         }
+    }
+
+    fun getFavShows(context: Context): List<PersistedShow> {
+            return Database.getDatabase(context).favouritesdDao().getAllFavourites()
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

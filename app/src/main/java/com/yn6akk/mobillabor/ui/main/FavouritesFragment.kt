@@ -2,6 +2,7 @@ package com.yn6akk.mobillabor.ui.main
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,13 +18,20 @@ class FavouritesFragment : Fragment(), MainScreen {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_season, container, false)
+        return inflater.inflate(R.layout.fragment_favourites, container, false)
     }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         injector.inject(this)
         mainPresenter.attachScreen(this)
+        val dbThread = Thread {
+            val shows = mainPresenter.getFavShows(context)
+            this.activity?.runOnUiThread {
+                Log.d("here",shows.first().toString())
+            }
+        }
+        dbThread.start()
     }
 
     override fun onDetach() {
@@ -37,5 +45,12 @@ class FavouritesFragment : Fragment(), MainScreen {
 
     override fun showNetworkError(errorMsg: String) {
         TODO("Not yet implemented")
+    }
+
+    companion object {
+        fun newInstance(): FavouritesFragment {
+            val fragment = FavouritesFragment()
+            return fragment
+        }
     }
 }

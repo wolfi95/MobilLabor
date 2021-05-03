@@ -26,7 +26,9 @@ public abstract class Database : RoomDatabase() {
                     context.applicationContext,
                     com.yn6akk.mobillabor.persistence.Database::class.java,
                     "favourites_database"
-                ).build()
+                )
+                .fallbackToDestructiveMigration()
+                .build()
                 INSTANCE = instance
                 // return instance
                 instance
