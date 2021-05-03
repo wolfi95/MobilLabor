@@ -1,0 +1,29 @@
+package com.yn6akk.mobillabor.ui
+
+import android.content.Context
+import com.yn6akk.mobillabor.interactor.shows.ShowsInteractor
+import com.yn6akk.mobillabor.ui.details.DetailsPresenter
+import com.yn6akk.mobillabor.ui.main.MainPresenter
+import dagger.Module
+import dagger.Provides
+import java.util.concurrent.Executor
+import java.util.concurrent.Executors
+import javax.inject.Singleton
+
+@Module
+class UIModule(private val context: Context) {
+    @Provides
+    fun context() = context
+
+    @Provides
+    @Singleton
+    fun mainPresenter(executor: Executor, showsInteractor: ShowsInteractor) = MainPresenter(executor, showsInteractor)
+
+    @Provides
+    @Singleton
+    fun detailsPresenter(executor: Executor, showsInteractor: ShowsInteractor) = DetailsPresenter(executor, showsInteractor)
+
+    @Provides
+    @Singleton
+    fun networkExecutor(): Executor = Executors.newFixedThreadPool(1)
+}
