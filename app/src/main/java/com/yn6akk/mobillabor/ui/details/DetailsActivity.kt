@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.yn6akk.mobillabor.R
-import com.yn6akk.mobillabor.model.ShowDetail
 import com.yn6akk.mobillabor.ui.injector
 import com.yn6akk.mobillabor.ui.main.SeasonFragment
 import io.swagger.client.models.AnimeDetails

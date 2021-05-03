@@ -1,6 +1,5 @@
 package com.yn6akk.mobillabor.interactor.shows.events
 
-import com.yn6akk.mobillabor.model.ShowDetail
 import io.swagger.client.models.AnimeDetails
 
 data class GetShowDetailsEvent (

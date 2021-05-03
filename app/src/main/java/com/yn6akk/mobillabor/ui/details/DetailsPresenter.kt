@@ -2,7 +2,6 @@ package com.yn6akk.mobillabor.ui.details
 
 import com.yn6akk.mobillabor.interactor.shows.ShowsInteractor
 import com.yn6akk.mobillabor.interactor.shows.events.GetShowDetailsEvent
-import com.yn6akk.mobillabor.model.ShowDetail
 import com.yn6akk.mobillabor.ui.Presenter
 import io.swagger.client.models.AnimeDetails
 import org.greenrobot.eventbus.EventBus
