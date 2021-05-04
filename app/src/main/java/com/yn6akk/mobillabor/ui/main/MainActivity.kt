@@ -1,7 +1,6 @@
 package com.yn6akk.mobillabor.ui.main
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.yn6akk.mobillabor.R
@@ -14,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
         setContentView(R.layout.activity_main)
-        supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, SeasonFragment.newInstance()).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, SeasonFragment.newInstance(), "seasons_fragment").commit()
         val newShow = PersistedShow("firstShow", 0);
         /*try {
             var dbThread = Thread {
@@ -26,13 +25,19 @@ class MainActivity : AppCompatActivity() {
         }*/
         val buttonOne = findViewById<Button>(R.id.seasonsButton);
         buttonOne.setOnClickListener {
-            Log.d("frag","season")
-            supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, SeasonFragment.newInstance()).commit()
+            val myFragment: SeasonFragment? =
+                supportFragmentManager.findFragmentByTag("seasons_fragment") as SeasonFragment?
+            if (myFragment == null) {
+                supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, SeasonFragment.newInstance(),"seasons_fragment").commit()
+            }
         }
         val buttonTwo = findViewById<Button>(R.id.favouritesButton);
         buttonTwo.setOnClickListener {
-            Log.d("frag","fav")
-            supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, FavouritesFragment.newInstance()).commit()
+            val myFragment: FavouritesFragment? =
+                supportFragmentManager.findFragmentByTag("fav_fragment") as FavouritesFragment?
+            if (myFragment == null) {
+                supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, FavouritesFragment.newInstance(), "fav_fragment").commit()
+            }
         }
     }
 }

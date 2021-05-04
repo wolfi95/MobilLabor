@@ -15,7 +15,7 @@ import io.swagger.client.models.AnimeList
 import kotlinx.android.synthetic.main.fragment_season.*
 import javax.inject.Inject
 
-class SeasonFragment : Fragment(), MainScreen {
+class SeasonFragment : Fragment(), ScheduleScreen {
     private var seasonsAdapter: SeasonsAdapter? = null
     private val displayedDays: MutableList<ScheduleDay> = mutableListOf()
 

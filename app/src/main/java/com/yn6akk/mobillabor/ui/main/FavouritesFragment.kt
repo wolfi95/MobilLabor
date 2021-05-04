@@ -12,9 +12,9 @@ import com.yn6akk.mobillabor.ui.injector
 import io.swagger.client.models.AnimeList
 import javax.inject.Inject
 
-class FavouritesFragment : Fragment(), MainScreen {
+class FavouritesFragment : Fragment(), FavouritesScreen {
     @Inject
-    lateinit var mainPresenter: MainPresenter
+    lateinit var favPresenter: FavouritesPresenter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -24,9 +24,9 @@ class FavouritesFragment : Fragment(), MainScreen {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         injector.inject(this)
-        mainPresenter.attachScreen(this)
+        favPresenter.attachScreen(this)
         val dbThread = Thread {
-            val shows = mainPresenter.getFavShows(context)
+            val shows = favPresenter.getFavShows(context)
             this.activity?.runOnUiThread {
                 Log.d("here",shows.first().toString())
             }
@@ -35,16 +35,8 @@ class FavouritesFragment : Fragment(), MainScreen {
     }
 
     override fun onDetach() {
-        mainPresenter.detachScreen()
+        favPresenter.detachScreen()
         super.onDetach()
-    }
-
-    override fun showShows(shows: AnimeList?) {
-        TODO("Not yet implemented")
-    }
-
-    override fun showNetworkError(errorMsg: String) {
-        TODO("Not yet implemented")
     }
 
     companion object {

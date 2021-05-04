@@ -13,9 +13,9 @@ import org.greenrobot.eventbus.ThreadMode
 import java.util.concurrent.Executor
 import javax.inject.Inject
 
-class MainPresenter @Inject constructor(private val executor: Executor, private val showsInteractor: ShowsInteractor) : Presenter<MainScreen>() {
+class MainPresenter @Inject constructor(private val executor: Executor, private val showsInteractor: ShowsInteractor) : Presenter<ScheduleScreen>() {
 
-    override fun attachScreen(screen: MainScreen) {
+    override fun attachScreen(screen: ScheduleScreen) {
         super.attachScreen(screen)
         if (!EventBus.getDefault().isRegistered(this)) {
             EventBus.getDefault().register(this)
@@ -31,10 +31,6 @@ class MainPresenter @Inject constructor(private val executor: Executor, private 
         executor.execute {
             showsInteractor.getShows()
         }
-    }
-
-    fun getFavShows(context: Context): List<PersistedShow> {
-            return Database.getDatabase(context).favouritesdDao().getAllFavourites()
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
