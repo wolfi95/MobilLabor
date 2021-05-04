@@ -52,6 +52,7 @@ dependencies {
     implementation toolkitDependencies.retrofit
     implementation toolkitDependencies.retrofitGsonConverter
     implementation toolkitDependencies.gson
+    implementation toolkitDependencies.glide
     implementation "androidx.room:room-ktx:2.3.0"
     implementation supportDependencies.cardview
 

@@ -35,7 +35,7 @@
     <LinearLayout
         android:id="@+id/navigation"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="@id/header"
         app:layout_constraintHorizontal_bias="1.0"
@@ -52,7 +52,7 @@
         <Button
             android:id="@+id/seasonsButton"
             android:layout_width="0dp"
-            android:layout_height="100dp"
+            android:layout_height="match_parent"
             android:layout_weight=".50"
             android:text="Season" />
 
