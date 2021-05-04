@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.hide()
         setContentView(R.layout.activity_main)
         supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, SeasonFragment.newInstance()).commit()
         val newShow = PersistedShow("firstShow", 0);
@@ -23,12 +24,12 @@ class MainActivity : AppCompatActivity() {
         } catch (e: Exception) {
             Log.e("insert",e.toString())
         }*/
-        val buttonOne = findViewById<Button>(R.id.button2);
+        val buttonOne = findViewById<Button>(R.id.seasonsButton);
         buttonOne.setOnClickListener {
             Log.d("frag","season")
             supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, SeasonFragment.newInstance()).commit()
         }
-        val buttonTwo = findViewById<Button>(R.id.button3);
+        val buttonTwo = findViewById<Button>(R.id.favouritesButton);
         buttonTwo.setOnClickListener {
             Log.d("frag","fav")
             supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, FavouritesFragment.newInstance()).commit()

@@ -32,11 +32,12 @@ class DetailsActivity : AppCompatActivity(), DetailsScreen {
 
     override fun onResume() {
         super.onResume()
-        detailPresenter.getShowDetails("selectedArtist")
+        val id = intent.getIntExtra("id",0);
+        detailPresenter.getShowDetails(id.toString())
     }
 
-    override fun showDetails(shows: AnimeDetails) {
-        TODO("Not yet implemented")
+    override fun showDetails(show: AnimeDetails) {
+        var x = show;
     }
 
     override fun showNetworkError(errorMsg: String) {
