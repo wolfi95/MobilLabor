@@ -7,7 +7,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.yn6akk.mobillabor.persistence.models.PersistedShow
 
-@Database(entities = arrayOf(PersistedShow::class), version = 1, exportSchema = false)
+@Database(entities = arrayOf(PersistedShow::class), version = 2, exportSchema = false)
 public abstract class Database : RoomDatabase() {
 
     abstract fun favouritesdDao(): FavouritesDao

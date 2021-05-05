@@ -11,9 +11,12 @@ interface FavouritesDao {
     @Query("SELECT * FROM Favourites")
     fun getAllFavourites(): List<PersistedShow>
 
-     @Insert
-     fun addFavourite(vararg fav: PersistedShow)
+    @Insert
+    fun addFavourite(vararg fav: PersistedShow)
 
     @Delete
     fun deleteFavourite(fav: PersistedShow)
+
+    @Query("SELECT * FROM Favourites as fv WHERE fv.id=:id")
+    fun getavouriteById(id: Int): PersistedShow?
 }
