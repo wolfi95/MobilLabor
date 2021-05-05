@@ -10,4 +10,4 @@ inline fun <reified T : Any> mock(s: MockSettings): T = Mockito.mock(T::class.ja
 
 inline fun <reified T : Any> argumentCaptor(): ArgumentCaptor<T> = ArgumentCaptor.forClass(T::class.java)
 inline fun <reified T : Any> nullableArgumentCaptor(): ArgumentCaptor<T?> = ArgumentCaptor.forClass(T::class.java)
-inline fun <reified T : Any> capture(captor: ArgumentCaptor<T>): T = captor.capture()
+inline fun <T> capture(argumentCaptor: ArgumentCaptor<T>): T = argumentCaptor.capture()

@@ -39,7 +39,7 @@ class ScheduleTest {
     }
 
     @Test
-    fun testSearch() {
+    fun testShows() {
         mainPresenter.refreshShows()
 
         val list = argumentCaptor<AnimeList>()

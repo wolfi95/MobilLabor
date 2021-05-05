@@ -4,7 +4,9 @@ import com.yn6akk.mobillabor.network.ShowsApi
 import io.swagger.client.models.Anime
 import io.swagger.client.models.AnimeDetails
 import io.swagger.client.models.AnimeList
+import okhttp3.MediaType
 import okhttp3.Request
+import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -66,7 +68,11 @@ class MockShowsApi : ShowsApi {
         val call = object : Call<AnimeDetails> {
             @Throws(IOException::class)
             override fun execute(): Response<AnimeDetails> {
-                return Response.success(detailsResult)
+                if(showId.toInt() == detailsResult.mal_id) {
+                    return Response.success(detailsResult)
+                } else {
+                    return Response.error(400, ResponseBody.create(MediaType.get("application/json"), "Couldnt find details."))
+                }
             }
 
             override fun enqueue(callback: Callback<AnimeDetails>) {
