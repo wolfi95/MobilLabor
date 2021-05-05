@@ -71,7 +71,9 @@ dependencies {
     testImplementation daggerDependencies.annotation
     kaptTest daggerDependencies.compiler
 
-    testImplementation 'junit:junit:4.+'
+    testImplementation unitTestDependencies.junit
+    testImplementation unitTestDependencies.robolectric
+    testImplementation unitTestDependencies.mockito
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     androidTestImplementation daggerDependencies.dagger

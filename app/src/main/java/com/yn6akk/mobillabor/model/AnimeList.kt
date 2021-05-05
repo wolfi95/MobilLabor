@@ -30,13 +30,13 @@ data class AnimeList (
     val request_hash: kotlin.String? = null,
     val request_cached: kotlin.Boolean? = null,
     val request_cache_expiry: kotlin.String? = null,
-    val monday: kotlin.Array<Anime>? = null,
-    val tuesday: kotlin.Array<Anime>? = null,
-    val wednesday: kotlin.Array<Anime>? = null,
-    val thursday: kotlin.Array<Anime>? = null,
-    val friday: kotlin.Array<Anime>? = null,
-    val saturday: kotlin.Array<Anime>? = null,
-    val sunday: kotlin.Array<Anime>? = null
+    var monday: kotlin.Array<Anime>? = null,
+    var tuesday: kotlin.Array<Anime>? = null,
+    var wednesday: kotlin.Array<Anime>? = null,
+    var thursday: kotlin.Array<Anime>? = null,
+    var friday: kotlin.Array<Anime>? = null,
+    var saturday: kotlin.Array<Anime>? = null,
+    var sunday: kotlin.Array<Anime>? = null
 ) {
 
 }
