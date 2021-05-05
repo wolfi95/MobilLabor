@@ -20,7 +20,7 @@ class MockShowsApi : ShowsApi {
         val monday = ArrayList<Anime>()
         monday.add(show)
 
-        showsResult.monday = monday.toArray() as Array<Anime>?
+        showsResult.monday = monday.toTypedArray()
 
         val call = object : Call<AnimeList> {
             @Throws(IOException::class)

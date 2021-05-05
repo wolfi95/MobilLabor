@@ -41,7 +41,7 @@ ext {
 
     unitTestDependencies = [
             junit             : "junit:junit:$junit_version",
-            robolectric       : "org.robolectric:robolectric:$robolectric_version",
+            robolectric       : "org.robolectric:robolectric:1.0.0",
             mockito           : "org.mockito:mockito-core:$mockito_version",
     ]
 
