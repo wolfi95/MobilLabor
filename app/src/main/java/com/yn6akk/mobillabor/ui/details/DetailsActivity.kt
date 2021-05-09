@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.google.firebase.analytics.FirebaseAnalytics
 import com.yn6akk.mobillabor.R
 import com.yn6akk.mobillabor.persistence.Database
 import com.yn6akk.mobillabor.persistence.models.PersistedShow
@@ -79,6 +80,7 @@ class DetailsActivity : AppCompatActivity(), DetailsScreen {
                 } else {
                     button.setOnClickListener {
                         val newShow = PersistedShow(show.title, show.mal_id, intent.getStringExtra("airsOn"))
+                        FirebaseAnalytics.getInstance(this).logEvent("favourite_added", null)
                         val dbThread = Thread {
                             Database.getDatabase(this).favouritesdDao().addFavourite(newShow)
                             runOnUiThread {

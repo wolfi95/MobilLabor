@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "395561255676",
+    "project_id": "prop-ca794",
+    "storage_bucket": "prop-ca794.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:395561255676:android:62cec62fe33287eb2d4d79",
+        "android_client_info": {
+          "package_name": "com.yn6akk.mobillabor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "395561255676-98ufb0sas3nr3td9ch75rg7o3lffr49b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXp5BKw4_l8_RjC-qDS5zQu1dfT0twpnA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "395561255676-98ufb0sas3nr3td9ch75rg7o3lffr49b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
